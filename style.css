@@ -50,7 +50,26 @@ body {
 	/* can also use align-self on items */
 	place-items: stretch;
 	/* both the above at once */
+	justify-content: stretch; /* start | end | center | stretch | space-around | space-between | space-evenly */
+	/* just example, not working in this instance */
+	align-content: space-evenly; /* start | end | center | stretch | space-around | space-between | space-evenly */
+	/* use above if total grid size less than container size (happens when px used for e.g. as per rows in this eg */
+	place-content: space-evenly;
+	/* above two properties together */
+	/* just example, not working in this instance */
+	grid-auto-columns: auto; /*  can be a length, a percentage, or a fraction of the free space in the grid (using the fr unit) */
+	grid-auto-rows: auto; /*  can be a length, a percentage, or a fraction of the free space in the grid (using the fr unit) */
+	/* pecifies the size of any auto-generated grid tracks (aka implicit grid tracks) */
+	/* implicit tracks get created when there are more grid items than cells in the grid or when a grid item is placed outside of the explicit grid */
+	/* explained well in css tricks example */
+	grid-auto-flow: row; /* row (default) | column | row dense | column dense */
+	/* defines flow of not explicitely placed items */
+	/* dense only changes visual order of items so can be bad for accessibility */
+	/* explained well in css tricks example */
+	/* grid: ; can be used as shorthand for  grid-template-rows, grid-template-columns, grid-template-areas, grid-auto-rows, grid-auto-columns, and grid-auto-flow */
 }
+
+/* child/item properties */
 
 .item {
 	min-width: 100px;
