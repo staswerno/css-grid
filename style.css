@@ -19,7 +19,7 @@ body {
 	display: grid; /* grid | inline-grid */
 	/* defines element as grid container */
 	grid-template-columns: [c-line-1] 1fr [c-line-2] 2fr [c-line-3] 150px [c-line-4] 2fr [c-line-5] 1fr [c-line-6];
-	grid-template-rows: auto;
+	grid-template-rows: repeat(3, 200px);
 	/* values represent the track size, and the space between them represents the grid line */
 	/* can be length, percentage or fraction (fr) */
 	/* bracket syntax for line names | name as you like | can have multiple names e.g. [row1-end row2-start] */
@@ -44,15 +44,20 @@ body {
 	/* shorthand for: */
 	/* row-gap: 0.7em; */
 	/* column-gap: 0.5em; */
-	justify-items: stretch; /* tart | end | center | stretch */
+	justify-items: stretch; /* start | end | center | stretch (default) */
+	/* can also use justify-self on items */
+	align-items: stretch; /* start | end | center | stretch (default) | baseline */
+	/* can also use align-self on items */
+	place-items: stretch;
+	/* both the above at once */
 }
 
 .item {
 	min-width: 100px;
 	min-height: 100px;
-	/* display: flex;
+	display: flex;
 	justify-content: center;
-	align-items: center; */
+	align-items: center;
 }
 
 #item1 {
