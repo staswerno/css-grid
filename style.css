@@ -14,50 +14,68 @@ body {
 /* parent/container properties */
 
 .container {
+	height: 100vh;
 	/* grid properties below */
-	display: grid;
-	/* grid | inline-grid > defines element as grid container */
+	display: grid; /* grid | inline-grid */
+	/* defines element as grid container */
 	grid-template-columns: [c-line-1] 1fr [c-line-2] 2fr [c-line-3] 150px [c-line-4] 2fr [c-line-5] 1fr [c-line-6];
-	grid-template-rows: repeat(3, 1fr);
+	grid-template-rows: auto;
 	/* values represent the track size, and the space between them represents the grid line */
 	/* can be length, percentage or fraction (fr) */
 	/* bracket syntax for line names | name as you like | can have multiple names e.g. [row1-end row2-start] */
 	/* BUT automatically named with positive numbers (so row lines will be 1, 2, 3, 4) */
 	/* repeat notation for repeating parts e.g. repeat(3, 20px [col-start]) */
 	/* when using fr, free space is calculated after any non-flexible items - so above, free space available to the fr units doesn’t include the 150px */
+	grid-template-areas:
+		"header header header header header"
+		"sidebar main main . aside"
+		"footer footer footer footer footer"; /*  "<grid-area-name> | . (empty grid cell) | none (no grid areas defined) | ..." */
+	/* Defines a grid template by referencing the names of the grid areas which are specified with the grid-area property. */
+	/* Repeating the name of a grid area causes the content to span those cells. */
+	/* A period signifies an empty cell. */
+	/* The syntax itself provides a visualization of the structure of the grid. */
+	/* Each row must have = # cells. */
+	/* lines automatically named */
+	/* if the name of your grid area is foo, the name of the area’s starting row line and starting column line will be foo-start */
+	/* and the name of its last row line and last column line will be foo-end - so lines can have multiple names*/
+	/* grid-template is shorthand for the above 3 properties, but just use those for now */
+	gap: 0.7em 0.5em;
+	/* specifice grid line/gutter width */
+	/* shorthand for: */
+	/* row-gap: 0.7em; */
+	/* column-gap: 0.5em; */
+	justify-items: stretch; /* tart | end | center | stretch */
 }
 
 .item {
 	min-width: 100px;
 	min-height: 100px;
+	/* display: flex;
+	justify-content: center;
+	align-items: center; */
 }
 
-#item1,
-#item6,
-#item11 {
+#item1 {
+	grid-area: header;
 	background-color: palevioletred;
 }
 
-#item2,
-#item7,
-#item12 {
+#item2 {
+	grid-area: sidebar;
 	background-color: lightskyblue;
 }
 
-#item3,
-#item8,
-#item13 {
+#item3 {
+	grid-area: main;
 	background-color: lightsalmon;
 }
 
-#item4,
-#item9,
-#item14 {
+#item4 {
+	grid-area: aside;
 	background-color: palegreen;
 }
 
-#item5,
-#item10,
-#item15 {
+#item5 {
+	grid-area: footer;
 	background-color: lightpink;
 }
