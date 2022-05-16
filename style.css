@@ -14,12 +14,11 @@ body {
 /* parent/container properties */
 
 .container {
-	height: 100vh;
 	/* grid properties below */
 	display: grid; /* grid | inline-grid */
 	/* defines element as grid container */
 	grid-template-columns: [c-line-1] 1fr [c-line-2] 2fr [c-line-3] 150px [c-line-4] 2fr [c-line-5] 1fr [c-line-6];
-	grid-template-rows: repeat(3, 200px);
+	grid-template-rows: repeat(5, 200px);
 	/* values represent the track size, and the space between them represents the grid line */
 	/* can be length, percentage or fraction (fr) */
 	/* bracket syntax for line names | name as you like | can have multiple names e.g. [row1-end row2-start] */
@@ -80,26 +79,40 @@ body {
 }
 
 #item1 {
-	grid-area: header;
 	background-color: palevioletred;
+	grid-area: header; /* <name> | <row-start> / <column-start> / <row-end> / <column-end> */
+	justify-self: stretch; /* start | end | center | stretch (default) */
+	align-self: end; /* start | end | center | stretch (default) */
+	/* place-self */
 }
 
 #item2 {
-	grid-area: sidebar;
 	background-color: lightskyblue;
+	grid-area: sidebar; /* <name> | <row-start> / <column-start> / <row-end> / <column-end> */
 }
 
 #item3 {
-	grid-area: main;
 	background-color: lightsalmon;
+	grid-area: main; /* <name> | <row-start> / <column-start> / <row-end> / <column-end> */
 }
 
 #item4 {
-	grid-area: aside;
 	background-color: palegreen;
+	grid-area: aside; /* <name> | <row-start> / <column-start> / <row-end> / <column-end> */
 }
 
 #item5 {
-	grid-area: footer;
 	background-color: lightpink;
+	grid-area: footer; /* <name> | <row-start> / <column-start> / <row-end> / <column-end> */
+}
+
+#item6 {
+	background-color: lightslategray;
+	grid-column: 3/5; /* <number> | <name> | span <number> | span <name> | auto */
+	grid-row: 4/5; /* <number> | <name> | span <number> | span <name> | auto */
+	/* longhand versions below */
+	/* grid-column-start: <number> | <name> | span <number> | span <name> | auto */
+	/* grid-column-end: <number> | <name> | span <number> | span <name> | auto */
+	/* grid-row-start: <number> | <name> | span <number> | span <name> | auto */
+	/* grid-row-end: <number> | <name> | span <number> | span <name> | auto */
 }

@@ -11,6 +11,8 @@ source: https://css-tricks.com/snippets/css/complete-guide-grid/
 
 item source order doesn't matter - css places them, so grid can be rearranged with media queries
 
+float, display: inline-block, display: table-cell, vertical-align and column-\* properties have no effect on a grid item
+
 ## terminology
 
 - Grid Container: element on which display: grid is applied / direct parent of all the grid items
