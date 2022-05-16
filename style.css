@@ -1,0 +1,63 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	font-size: 2.5em;
+	color: whitesmoke;
+	background-color: whitesmoke;
+}
+
+/* parent/container properties */
+
+.container {
+	/* grid properties below */
+	display: grid;
+	/* grid | inline-grid > defines element as grid container */
+	grid-template-columns: [c-line-1] 1fr [c-line-2] 2fr [c-line-3] 150px [c-line-4] 2fr [c-line-5] 1fr [c-line-6];
+	grid-template-rows: repeat(3, 1fr);
+	/* values represent the track size, and the space between them represents the grid line */
+	/* can be length, percentage or fraction (fr) */
+	/* bracket syntax for line names | name as you like | can have multiple names e.g. [row1-end row2-start] */
+	/* BUT automatically named with positive numbers (so row lines will be 1, 2, 3, 4) */
+	/* repeat notation for repeating parts e.g. repeat(3, 20px [col-start]) */
+	/* when using fr, free space is calculated after any non-flexible items - so above, free space available to the fr units doesn’t include the 150px */
+}
+
+.item {
+	min-width: 100px;
+	min-height: 100px;
+}
+
+#item1,
+#item6,
+#item11 {
+	background-color: palevioletred;
+}
+
+#item2,
+#item7,
+#item12 {
+	background-color: lightskyblue;
+}
+
+#item3,
+#item8,
+#item13 {
+	background-color: lightsalmon;
+}
+
+#item4,
+#item9,
+#item14 {
+	background-color: palegreen;
+}
+
+#item5,
+#item10,
+#item15 {
+	background-color: lightpink;
+}
